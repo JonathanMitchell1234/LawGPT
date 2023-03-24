@@ -1,32 +1,43 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import React from 'react';
 
-export default function ButtonAppBar() {
+const ButtonAppBar = () => {
+  function updateMenu() {
+   if (document.getElementById('responsive-menu').checked === true) {
+    document.getElementById('menu').style.borderBottomRightRadius = '0';
+    document.getElementById('menu').style.borderBottomLeftRadius = '0';
+  }else{
+    document.getElementById('menu').style.borderRadius = '10px';
+  }
+  }
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <>
+      <nav id='menu'>
+        <input type='checkbox' id='responsive-menu' onClick={updateMenu} />
+        <label htmlFor='responsive-menu'></label>
+        <ul>
+          <li><a href='http://'>Home</a></li>
+          <li><a className='dropdown-arrow' href='http://'>Products</a>
+            <ul className='sub-menus'>
+              <li><a href='http://'>Products 1</a></li>
+              <li><a href='http://'>Products 2</a></li>
+              <li><a href='http://'>Products 3</a></li>
+              <li><a href='http://'>Products 4</a></li>
+            </ul>
+          </li>
+          <li><a href='http://'>About</a></li>
+          <li><a className='dropdown-arrow' href='http://'>Services</a>
+            <ul className='sub-menus'>
+              <li><a href='http://'>Services 1</a></li>
+              <li><a href='http://'>Services 2</a></li>
+              <li><a href='http://'>Services 3</a></li>
+            </ul>
+          </li>
+          <li><a href='http://'>Contact Us</a></li>
+        </ul>
+      </nav>
+    </>
   );
 }
+
+export default ButtonAppBar;

@@ -1,5 +1,95 @@
-.hero {
-    background: rgb(38,38,38);
-    background: radial-gradient(circle, rgba(38,38,38,1) 55%, rgba(82,81,81,1) 80%, rgba(166,165,164,1) 99%);
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap');
+
+.bg-video-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  background: url(../Media/columns.mp4) no-repeat center center/cover;
+}
+
+video {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(45deg, rgba(0,0,0,.3) 50%, rgba(0,0,0,.7) 50%);
+  background-size: 3px 3px;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  color: white;
+  font-family: 'Lexend', sans-serif;
+  text-align: center;
+  max-width: 100%;
+  padding: 0 20px;
+}
+
+.hero-text {
+  font-size: 75px;
+  margin-bottom: 20px;
+}
+
+.hero-subtext {
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+
+.hero-button {
+  font-size: 35px;
+  padding: 5px 30px;
+  border-radius: 5px;
+  background-color: #8a878700;
+  border: 4px solid rgba(255, 255, 255, 0.998);
+  color: rgba(216, 216, 216, 0.705);
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 480px) {
+  /* styles for screens up to 480px wide */
+  .hero-text {
+    font-size: 30px;
+  }
+  
+  .hero-subtext {
+    font-size: 15px;
+  }
+  
+  .hero-button {
+    width: 150px;
+    font-size: 15px;
+  }
 }
