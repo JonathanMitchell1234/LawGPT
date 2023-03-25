@@ -5,11 +5,11 @@ import ButtonAppBar from './Components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <ButtonAppBar />
-      <Hero />
-     <ChatGPT/>
-    </div>
+		<div className="App">
+			<ButtonAppBar />
+			<Hero />
+			<ChatGPT />
+		</div>
   );
 }
 

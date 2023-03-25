@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap");
+
 body {
     background-color: black;
+    font-family: 'Lexend', sans-serif;
 }
 
 #menu {
@@ -96,3 +99,5 @@ body {
 	#menu input:checked + label:before {content:"\00d7"}
 	#menu input:checked ~ ul {display:block}
 }
+
+

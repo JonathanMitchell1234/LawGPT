@@ -69,12 +69,18 @@ video {
 
 .hero-button {
   font-size: 35px;
+  font-weight: 800;
   padding: 5px 30px;
   border-radius: 5px;
-  background-color: #8a878700;
+  background-color: #201f1f00;
   border: 4px solid rgba(255, 255, 255, 0.998);
   color: rgba(216, 216, 216, 0.705);
   cursor: pointer;
+}
+
+.hero-button:hover {
+  background-color: #373636;
+  color: white;
 }
 
 
