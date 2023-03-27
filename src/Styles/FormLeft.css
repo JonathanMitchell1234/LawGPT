@@ -1,1 +1,19 @@
-/*# sourceMappingURL=FormLeft.css.map */
+.form-left {
+  display: flex;
+  margin-left: 50px;
+  width: 100%;
+}
+
+.form-left-heading {
+  color: white;
+  font-size: 100px;
+  font-weight: 800;
+  position: absolute;
+  float: right;
+}
+
+@media (max-width: 1200px) {
+  .form-left {
+    display: none;
+  }
+}/*# sourceMappingURL=FormLeft.css.map */

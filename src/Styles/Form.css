@@ -20,6 +20,7 @@
   align-items: center;
   width: 100%;
   margin-bottom: 20px;
+  max-width: 2000px;
 }
 
 .formInput {
@@ -98,6 +99,7 @@ label {
 }
 
 input[type=text], input[type=email], input[type=tel] {
+  display: flex;
   width: 500px;
   height: 40px;
   margin-bottom: 20px;
@@ -111,3 +113,24 @@ input:focus, textarea:focus {
   outline: none;
   box-shadow: 0 0 5px #007bff;
 }/*# sourceMappingURL=Form.css.map */
+
+/* write a media query for formContainer */
+@media screen and (max-width: 800px) {
+  .formContainer {
+    float: none;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* write a media query for input and text area */
+@media screen and (max-width: 800px) {
+  input[type=text], input[type=email], input[type=tel], textarea {
+    width: 95vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  textarea {
+    width: 95vw !important;
+  }
+}
