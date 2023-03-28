@@ -4,6 +4,7 @@ import columns from "../Media/columns.mp4";
 import GavelIcon from '@mui/icons-material/Gavel';
 import { RoughNotation} from "react-rough-notation";
 import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -11,7 +12,15 @@ const Hero = () => {
 			<video className="hero-video" src={columns} autoPlay loop muted />
 			<div className="hero-content">
 				<p className="hero-text">
-					<RoughNotation type="highlight" show={true} color={"yellow"} animationDelay={200} animationDuration={3000} strokeWidth={0} interations={10}>
+					<RoughNotation
+						type="highlight"
+						show={true}
+						color={"yellow"}
+						animationDelay={200}
+						animationDuration={3000}
+						strokeWidth={0}
+						interations={10}
+					>
 						Welcome to LawGPT <GavelIcon style={{ fontSize: "60px" }} />
 					</RoughNotation>
 				</p>
@@ -21,7 +30,9 @@ const Hero = () => {
 					</RoughNotation>
 				</p>
 				<Fade bottom>
-					<button className="hero-button">Get Started</button>
+					<Link to="/Form">
+						<button className="hero-button"> Get Started</button>
+					</Link>
 				</Fade>
 			</div>
 			<div className="overlay"></div>

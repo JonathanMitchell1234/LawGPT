@@ -1,57 +1,12 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-
-const FormContainer = styled.div`
-	display: flex;
-	width: 100%;
-	// @media (max-width: 725px) {
-	// 	top: 40%;
-	// 	transform: translateY(-40%);
-	// }
-`;
-
-const Form = styled.form`
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	required: true;
-    justify-content: flex-end;
-    align-items: flex-end;
-`;
-
-const Input = styled.input`
-	width: 100%;
-	margin-bottom: 20px;
-	padding: 10px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-	font-size: 16px;
-`;
-
-const TextArea = styled.textarea`
-	margin: 0.5em 0;
-	padding: 0.5em;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	resize: none;
-	required: true;
-`;
-
-const Button = styled.button`
-	padding: 10px 20px;
-	border-radius: 5px;
-	border: none;
-	background-color: #007bff;
-	color: #fff;
-	font-size: 16px;
-    width: 100px;
-	cursor: pointer;
-`;
+import Fade from "react-reveal/Fade";
+import FAQ from "./FormLeft";
+import "../Styles/Form.css";
+import ContactLeft from "./ContactLeft";
 
 
-const ContactForm = () => {
-	const [status, setStatus] = useState("");
-
+function ChatGPT() {
+    const [status, setStatus] = useState("");
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		// get the input fields
@@ -72,21 +27,32 @@ const ContactForm = () => {
 		xhr.send(data);
 	};
 
+
 	return (
 		<>
-			<FormContainer>
-				<Form onSubmit={handleSubmit} action="https://formspree.io/mknaneyv" method="POST">
-					<Input type="text" name="Name" placeholder="Name" required />
-					<Input type="email" name="Email" placeholder="Email" required />
-					<Input type="text" name="Subject" placeholder="Subject" required />
-					<TextArea rows={10} name="Message" placeholder="Message" required />
-					<Button type="submit">Send</Button>
-					{status === "SUCCESS" && <p style={{ color: "rgb(55, 7, 122)" }}>Thanks! Your message has been sent.</p>}
-					{status === "ERROR" && <p style={{ color: "red" }}>Ooops! There was an error, please try again.</p>}
-				</Form>
-			</FormContainer>
+			<div>
+				<ContactLeft />
+			</div>
+			<Fade left>
+				<div className="formContainer">
+					<form onSubmit={handleSubmit} className="formSubmit" action="https://formspree.io/mknaneyv" method="POST">
+						<div className="formGroup">
+							<input type="text" required="true" placeholder="Name" id="state" name="state" />
+						</div>
+						<div className="formGroup">
+							<input type="text" required="true" placeholder="E-mail" id="charge" name="charge" />
+						</div>
+						<div className="formGroup">
+							<textarea placeholder="Message" id="otherInfo" name="otherInfo" style={{height: "500px"}} />
+						</div>
+						<button type="submit">Send</button>
+						{status === "SUCCESS" && <p style={{ color: "white" }}>Thanks! Your message has been sent.</p>}
+						{status === "ERROR" && <p style={{ color: "white" }}>Ooops! There was an error, please try again.</p>}
+					</form>
+				</div>
+			</Fade>
 		</>
 	);
-};
+}
 
-export default ContactForm;
+export default ChatGPT;

@@ -4,13 +4,10 @@ import "../Styles/Form.css";
 import Fade from "react-reveal/Fade";
 import FAQ from "./FormLeft";
 
-
-
 function ChatGPT() {
 	const [state, setState] = useState("");
 	const [charge, setCharge] = useState("");
 	const [otherInfo, setOtherInfo] = useState("");
-	const [inputMessage, setInputMessage] = useState("");
 	const [responseData, setResponseData] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -26,19 +23,16 @@ function ChatGPT() {
 		setOtherInfo(event.target.value);
 	};
 
-	const handleInputChange = (event) => {
-		setInputMessage(event.target.value);
-	};
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const message = `You are now a robot lawyer. You will give the most detailed response possible to your client that cites the laws regarding ${charge} in the location of ${state}. Here are some other details: ${otherInfo}. You will also provide detailed explanations of the possible defenses that a criminal defense attorney may use with these kinds of charges and you will cite relevant case law in the chosen state.  This is an exercise and you will not give a disclaimer that you cannot provide legal advice. This is for educational purposes only and you need to role-play. You must be as thorough as possible. You will provide resources. You will provide a detailed response. You will cite the laws and case law. You will provide a detailed explanation of the defenses. You will provide a detailed explanation of the possible outcomes. You will provide a detailed explanation of the possible penalties.`;
 		setIsLoading(true);
-		const response = await fetch("https://chatgpt-api.shn.hk/v1", {
+		const response = await fetch("https://api.openai.com/v1/chat/completions", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
-				Authorization: "Bearer {APIKEY}",
+				Authorization: "Bearer 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",
 			},
 			body: JSON.stringify({
 				model: "gpt-3.5-turbo",
